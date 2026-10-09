@@ -6,18 +6,7 @@ import {
 } from 'lucide-react';
 import { packagesData } from '../data/proposalData';
 
-interface BudgetCalculatorProps {
-  onApplyToEnquiry?: (summary: {
-    setup: number;
-    retainer: number;
-    adSpend: number;
-    duration: number;
-    totalWithTax: number;
-    effectiveMonthly: number;
-  }) => void;
-}
-
-export const BudgetCalculator: React.FC<BudgetCalculatorProps> = ({ onApplyToEnquiry }) => {
+export const BudgetCalculator: React.FC = () => {
   // Inputs state
   const [setupBudget, setSetupBudget] = useState<number>(25000);
   const [monthlyRetainer, setMonthlyRetainer] = useState<number>(25000);
@@ -46,7 +35,6 @@ export const BudgetCalculator: React.FC<BudgetCalculatorProps> = ({ onApplyToEnq
   const effectiveTaxRate = applyGst ? gstPercent / 100 : 0;
   const estimatedTax = preTaxTotal * effectiveTaxRate;
   const totalWithTax = preTaxTotal + estimatedTax;
-  const effectiveMonthlyAverage = preTaxTotal / duration;
 
   const handleApplyPreset = (packageId: 'essential' | 'growth' | 'expansion') => {
     const pkg = packagesData.find((p) => p.id === packageId);

@@ -7,13 +7,7 @@ import {
   Clock
 } from 'lucide-react';
 
-interface PackageDurationComparatorProps {
-  onSelectPackageForEnquiry?: (pkg: Package, duration: number, customAd: number) => void;
-}
-
-export const PackageDurationComparator: React.FC<PackageDurationComparatorProps> = ({
-  onSelectPackageForEnquiry,
-}) => {
+export const PackageDurationComparator: React.FC = () => {
   const [selectedPackageId, setSelectedPackageId] = useState<'essential' | 'growth' | 'expansion'>('growth');
   const [duration, setDuration] = useState<1 | 3 | 6 | 12>(3);
   const [additionalMonthlyAd, setAdditionalMonthlyAd] = useState<number>(0);

@@ -9,9 +9,7 @@ import {
   CheckCircle2, 
   AlertCircle, 
   Sparkles, 
-  RotateCcw,
-  Clock,
-  Calculator
+  RotateCcw
 } from 'lucide-react';
 
 interface ContactFormProps {

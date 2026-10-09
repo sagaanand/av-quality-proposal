@@ -97,12 +97,10 @@ export const MarketingSpendVisualizer: React.FC = () => {
   // Calculations
   const totalAllocated = allocations.reduce((sum, item) => sum + item.amount, 0);
   const diff = totalAdBudget - totalAllocated;
+  // Validations
   const isExact = diff === 0;
   const isOverAllocated = diff < 0;
   const isUnderAllocated = diff > 0;
-
-  // Percentage calculations
-  const totalForPercent = totalAllocated > 0 ? totalAllocated : 1;
 
   return (
     <section className="py-24 bg-luxury-secondary border-b border-luxury-border">
