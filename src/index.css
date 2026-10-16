@@ -5,7 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    color: #171717;
+    color: #0F172A;
     background-color: #FFFFFF;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
@@ -13,49 +13,86 @@
   body {
     overflow-x: hidden;
     background-color: #FFFFFF;
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+    color: #0F172A;
   }
 
-  h1, h2, h3, h4, .font-serif-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    letter-spacing: -0.01em;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 700;
   }
 }
 
-/* Custom luxury scrollbar */
+/* Custom subtle scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F7F7F5;
+  background: #F8FAFC;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C6A56B;
-  border-radius: 3px;
+  background: #CBD5E1;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B59458;
+  background: #94A3B8;
 }
 
-/* Luxury subtle background grid */
-.bg-luxury-pattern {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(232, 229, 223, 0.4) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(232, 229, 223, 0.4) 1px, transparent 1px);
-}
+/* Print Styles for Clean PDF Export */
+@media print {
+  /* Hide non-printable elements */
+  .no-print,
+  nav,
+  button:not(.allow-print),
+  .print-hide {
+    display: none !important;
+  }
 
-/* Thin champagne divider line */
-.divider-champagne {
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, #C6A56B 50%, transparent 100%);
-}
+  /* Force background colors and remove screen-specific shadows */
+  body, html {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
 
-.divider-gold-subtle {
-  height: 1px;
-  background: #E8E5DF;
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Ensure cards and tables do not break awkwardly */
+  .print-avoid-break,
+  .card,
+  section {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Remove sticky positioning */
+  header, nav, .sticky {
+    position: static !important;
+  }
+
+  /* Ensure all borders are crisp light grey */
+  .border, [class*="border-"] {
+    border-color: #CBD5E1 !important;
+  }
+
+  /* Show full URLs or print hints if needed */
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  /* Remove box shadows in print */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
 }

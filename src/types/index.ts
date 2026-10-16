@@ -1,3 +1,7 @@
+// ==========================================
+// 1. ORIGINAL COMPREHENSIVE PROPOSAL TYPES
+// ==========================================
+
 export interface Package {
   id: 'essential' | 'growth' | 'expansion';
   letterCode: 'Package A' | 'Package B' | 'Package C';
@@ -71,6 +75,7 @@ export interface FAQItem {
   id: string;
   question: string;
   answer: string;
+  category?: 'commercial' | 'content' | 'workflow' | 'scope';
 }
 
 export interface ProposalAgencyConfig {
@@ -140,4 +145,102 @@ export interface ChannelAllocationItem {
   amount: number;
   color: string;
   description: string;
+}
+
+// ==========================================
+// 2. NEW DIGITAL GROWTH PROPOSAL TYPES (₹10k Retainer & AI Video)
+// ==========================================
+
+export interface CommercialCard {
+  id: 'setup' | 'retainer' | 'advertising';
+  title: string;
+  priceDisplay: string;
+  priceSubtext?: string;
+  badge?: string;
+  isPrimary?: boolean;
+  description: string;
+  deliverables: string[];
+  keyHighlight?: string;
+  ctaText: string;
+  disclaimer: string;
+}
+
+export interface DeliverableMetric {
+  id: string;
+  count: string;
+  unit: string;
+  title: string;
+  description: string;
+  frequency: string;
+  category: 'content' | 'video' | 'campaign' | 'strategy' | 'reporting';
+}
+
+export interface VideoShowcaseCategory {
+  id: string;
+  title: string;
+  shortCode: string;
+  description: string;
+  sampleHook: string;
+  coreInsight: string;
+  visualStyle: string;
+  targetAudience: string;
+  sampleStandards: string[];
+}
+
+export interface CalendarContentItem {
+  day: number;
+  dayLabel: string;
+  contentType: 'Static Creative' | 'AI Video';
+  category: 'ISO Awareness' | 'Business Education' | 'Service Explainer' | 'FAQ Breakdown' | 'Enquiry & Problem-Solution' | 'Service Focus';
+  title: string;
+  objective: string;
+  platformFormat: string;
+  coreAngle: string;
+  hook: string;
+  callToAction: string;
+}
+
+export interface QualificationStep {
+  stepNumber: number;
+  title: string;
+  description: string;
+  iconName: string;
+}
+
+export interface QualificationQuestion {
+  id: number;
+  question: string;
+  purpose: string;
+  sampleOptions: string[];
+}
+
+export interface RoadmapPhase {
+  phaseNumber: number;
+  daysRange: string;
+  title: string;
+  summary: string;
+  milestones: string[];
+  clientActionNeeded: string;
+}
+
+export interface SampleReportMetric {
+  id: string;
+  label: string;
+  sampleValue: string;
+  benchmarkContext: string;
+  definition: string;
+  category: 'volume' | 'reach' | 'engagement' | 'leads';
+}
+
+export interface ScopeExclusion {
+  title: string;
+  detail: string;
+  category: 'budget' | 'production' | 'technology' | 'commitment';
+}
+
+export interface TrustDistinction {
+  title: string;
+  definition: string;
+  responsibility: string;
+  complianceNote: string;
 }
